@@ -49,6 +49,39 @@ function stars(rating) {
   return `<span class="stars" aria-label="Rated ${rating} out of 5">${"★".repeat(full)}${"☆".repeat(5 - full)}</span>`;
 }
 
+/** Keep every `[data-cart-count]` badge in step with the cart. */
+function bindCartBadge() {
+  Store.subscribe((lines) => {
+    const total = lines.reduce((sum, l) => sum + l.qty, 0);
+    document.querySelectorAll("[data-cart-count]").forEach((el) => {
+      el.textContent = String(total);
+      el.hidden = total === 0;
+    });
+  });
+}
+
+/** Brief, non-blocking confirmation message. */
+function toast(message) {
+  let host = document.querySelector(".toast-host");
+  if (!host) {
+    host = document.createElement("div");
+    host.className = "toast-host";
+    // Announce politely so a screen reader hears the confirmation without
+    // losing the user's place on the page.
+    host.setAttribute("role", "status");
+    host.setAttribute("aria-live", "polite");
+    document.body.appendChild(host);
+  }
+
+  const note = document.createElement("div");
+  note.className = "toast";
+  note.textContent = message;
+  host.appendChild(note);
+
+  setTimeout(() => note.classList.add("out"), 2200);
+  setTimeout(() => note.remove(), 2600);
+}
+
 /** Mark the current page in the primary navigation. */
 function markActiveNav() {
   const here = location.pathname.split("/").pop() || "index.html";
@@ -58,6 +91,7 @@ function markActiveNav() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  bindCartBadge();
   markActiveNav();
   const year = document.querySelector("[data-year]");
   if (year) year.textContent = new Date().getFullYear();
