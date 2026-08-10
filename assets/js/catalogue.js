@@ -30,6 +30,9 @@
             <span class="price">${money(product.price)}</span>
             <div class="card-actions">
               <button class="btn btn-ghost" data-action="details" aria-label="View details for ${product.name}">Details</button>
+              <button class="btn btn-primary" data-action="add" ${soldOut ? "disabled" : ""}>
+                ${soldOut ? "Unavailable" : "Add to cart"}
+              </button>
             </div>
           </div>
         </div>
@@ -52,6 +55,10 @@
     dialog.querySelector("[data-slot=stock]").textContent =
       product.stock === 0 ? "Currently out of stock" : `${product.stock} in stock`;
 
+    const addButton = dialog.querySelector("[data-action=add-from-dialog]");
+    addButton.disabled = product.stock === 0;
+    addButton.dataset.id = product.id;
+
     dialog.showModal();
   }
 
@@ -63,12 +70,27 @@
 
     const id = button.closest(".card").dataset.id;
     const product = PRODUCTS.find((p) => p.id === id);
-    if (product) openDetails(product);
+    if (!product) return;
+
+    if (button.dataset.action === "add") {
+      const fullyAdded = Store.add(product.id);
+      toast(fullyAdded ? `${product.name} added to cart` : `Only ${product.stock} available — cart capped`);
+    } else {
+      openDetails(product);
+    }
   });
 
   dialog.addEventListener("click", (event) => {
-    const button = event.target.closest("button[data-action=close-dialog]");
-    if (button) dialog.close();
+    const button = event.target.closest("button[data-action]");
+    if (!button) return;
+
+    if (button.dataset.action === "close-dialog") {
+      dialog.close();
+    } else if (button.dataset.action === "add-from-dialog") {
+      const product = PRODUCTS.find((p) => p.id === button.dataset.id);
+      if (product && Store.add(product.id)) toast(`${product.name} added to cart`);
+      dialog.close();
+    }
   });
 
   render();
