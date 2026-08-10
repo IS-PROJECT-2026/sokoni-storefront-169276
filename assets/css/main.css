@@ -293,6 +293,131 @@ svg {
   color: var(--danger);
 }
 
+/* ----------------------------------------------------------------- Grid -- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: var(--space-5);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.art {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  color: var(--accent, var(--brand));
+  background:
+    radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--accent, #6366f1) 30%, transparent), transparent 70%),
+    var(--bg-sunken);
+  border-bottom: 1px solid var(--border);
+}
+
+.art svg {
+  width: 44%;
+  height: auto;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  flex: 1;
+}
+
+.card-title {
+  font-size: 1.02rem;
+}
+
+.card-blurb {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  flex: 1;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.stars {
+  color: var(--warn);
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.rating-value {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.pill-out {
+  background: rgba(248, 113, 113, 0.15);
+  color: var(--danger);
+}
+
+.pill-low {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--warn);
+}
+
+.card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+}
+
+.price {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.card-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.card-actions .btn {
+  padding: 8px 12px;
+  font-size: 0.82rem;
+}
+
 /* -------------------------------------------------------------- Sections -- */
 
 .section {
