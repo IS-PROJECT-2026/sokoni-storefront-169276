@@ -13,9 +13,6 @@
   const layout = document.querySelector("#checkout-layout");
   const guard = document.querySelector("#checkout-empty");
 
-  const FREE_DELIVERY_FROM = 20000;
-  const DELIVERY_FEE = 450;
-
   function renderReview() {
     const lines = Store.detailed();
 
@@ -40,7 +37,7 @@
       .join("");
 
     const subtotal = Store.subtotal();
-    const delivery = subtotal >= FREE_DELIVERY_FROM ? 0 : DELIVERY_FEE;
+    const delivery = deliveryFor(subtotal);
     review.querySelector("[data-slot=subtotal]").textContent = money(subtotal);
     review.querySelector("[data-slot=delivery]").textContent =
       delivery === 0 ? "Free" : money(delivery);
@@ -86,7 +83,7 @@
     }
 
     const subtotal = Store.subtotal();
-    const delivery = subtotal >= FREE_DELIVERY_FROM ? 0 : DELIVERY_FEE;
+    const delivery = deliveryFor(subtotal);
     const reference = `SK-${Date.now().toString(36).toUpperCase().slice(-6)}`;
 
     confirmation.querySelector("[data-slot=reference]").textContent = reference;
