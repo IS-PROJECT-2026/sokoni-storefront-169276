@@ -54,6 +54,23 @@
       </section>
     </main>
 
+    <dialog id="product-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-body">
+        <div data-slot="art"></div>
+        <div>
+          <p class="eyebrow" data-slot="category"></p>
+          <h2 id="dialog-title" data-slot="name"></h2>
+          <p class="card-blurb" data-slot="blurb"></p>
+          <p class="card-meta" data-slot="rating"></p>
+          <p class="price" data-slot="price"></p>
+          <p class="result-count" data-slot="stock"></p>
+        </div>
+      </div>
+      <div class="dialog-foot">
+        <button class="btn btn-ghost" data-action="close-dialog">Close</button>
+      </div>
+    </dialog>
+
     <footer class="site-footer">
       <div class="shell footer-inner">
         <span>© <span data-year></span> Sokoni Storefront</span>
