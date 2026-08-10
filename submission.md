@@ -59,7 +59,9 @@ A second, more serious slip is worth recording. My first branch protection rule 
 
 [PASTE YOUR PROJECT BOARD SCREENSHOT DIRECTLY HERE]
 
-* **Caption:** Kanban board with issues moving through To Do → In Progress → Done as each feature branch was opened and merged.
+* **Board URL:** https://github.com/orgs/IS-PROJECT-2026/projects/130
+
+* **Caption:** [Kanban board](https://github.com/orgs/IS-PROJECT-2026/projects/130) linked to this repository, with all 17 issues tracked across **To Do**, **In Progress** and **Done**. Every issue entered the board in To Do and was moved through In Progress before landing in Done, so the board carries the transitions rather than only the end state. Two items are deliberately still open: capturing these screenshots (In Progress) and forking the repository to a personal profile after grading (To Do).
 
 ### C. Branching Architecture
 
