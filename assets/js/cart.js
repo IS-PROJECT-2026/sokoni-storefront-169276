@@ -10,10 +10,6 @@
   const empty = document.querySelector("#cart-empty");
   const summary = document.querySelector("#cart-summary");
 
-  /** Delivery is free once the order clears this threshold. */
-  const FREE_DELIVERY_FROM = 20000;
-  const DELIVERY_FEE = 450;
-
   function lineMarkup(line) {
     return `
       <li class="line" data-id="${line.id}">
@@ -45,7 +41,7 @@
     if (!hasItems) return;
 
     const subtotal = Store.subtotal();
-    const delivery = subtotal >= FREE_DELIVERY_FROM ? 0 : DELIVERY_FEE;
+    const delivery = deliveryFor(subtotal);
 
     summary.querySelector("[data-slot=subtotal]").textContent = money(subtotal);
     summary.querySelector("[data-slot=delivery]").textContent =
@@ -53,7 +49,7 @@
     summary.querySelector("[data-slot=total]").textContent = money(subtotal + delivery);
 
     const nudge = summary.querySelector("[data-slot=nudge]");
-    const shortfall = FREE_DELIVERY_FROM - subtotal;
+    const shortfall = freeDeliveryShortfall(subtotal);
     nudge.hidden = shortfall <= 0;
     if (shortfall > 0) nudge.textContent = `Spend ${money(shortfall)} more for free delivery.`;
   }
