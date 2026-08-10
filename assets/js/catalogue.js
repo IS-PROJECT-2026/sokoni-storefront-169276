@@ -1,13 +1,40 @@
 /**
- * Storefront home: renders the product grid and opens the product detail
- * dialog.
+ * Storefront home: renders the product grid, drives search and category
+ * filtering, and opens the product detail dialog.
  */
 (() => {
   const grid = document.querySelector("#product-grid");
   if (!grid) return;
 
+  const searchInput = document.querySelector("#search");
+  const categorySelect = document.querySelector("#category");
   const resultCount = document.querySelector("#result-count");
+  const emptyState = document.querySelector("#empty-state");
   const dialog = document.querySelector("#product-dialog");
+
+  /** Populate the category filter from the catalogue itself. */
+  CATEGORIES.forEach((category) => {
+    const option = document.createElement("option");
+    option.value = category;
+    option.textContent = category;
+    categorySelect.appendChild(option);
+  });
+
+  /** Apply the current search term and category to the catalogue. */
+  function visibleProducts() {
+    const term = searchInput.value.trim().toLowerCase();
+    const category = categorySelect.value;
+
+    return PRODUCTS.filter((product) => {
+      const matchesCategory = category === "all" || product.category === category;
+      const matchesTerm =
+        !term ||
+        product.name.toLowerCase().includes(term) ||
+        product.blurb.toLowerCase().includes(term) ||
+        product.category.toLowerCase().includes(term);
+      return matchesCategory && matchesTerm;
+    });
+  }
 
   function cardMarkup(product) {
     const soldOut = product.stock === 0;
@@ -40,8 +67,14 @@
   }
 
   function render() {
-    grid.innerHTML = PRODUCTS.map(cardMarkup).join("");
-    resultCount.textContent = `Showing all ${PRODUCTS.length} products`;
+    const list = visibleProducts();
+    grid.innerHTML = list.map(cardMarkup).join("");
+
+    resultCount.textContent =
+      list.length === PRODUCTS.length
+        ? `Showing all ${list.length} products`
+        : `Showing ${list.length} of ${PRODUCTS.length} products`;
+    emptyState.hidden = list.length > 0;
   }
 
   function openDetails(product) {
@@ -91,6 +124,16 @@
       if (product && Store.add(product.id)) toast(`${product.name} added to cart`);
       dialog.close();
     }
+  });
+
+  [searchInput, categorySelect].forEach((control) =>
+    control.addEventListener("input", render),
+  );
+
+  document.querySelector("#clear-filters").addEventListener("click", () => {
+    searchInput.value = "";
+    categorySelect.value = "all";
+    render();
   });
 
   render();
