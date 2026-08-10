@@ -51,13 +51,15 @@ A second, more serious slip is worth recording. My first branch protection rule 
 
 ### A. Milestones and Issues
 
-[PASTE YOUR MILESTONE SCREENSHOT DIRECTLY HERE]
+<img width="2079" height="803" alt="image" src="https://github.com/user-attachments/assets/d6fa391f-80a3-46db-b8c5-c391329e6f1a" />
+
 
 * **Caption:** Three milestones — [M1 Catalogue Foundation](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/1) (4 issues), [M2 Cart & Checkout](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/2) (3 issues) and [M3 Discovery, Polish & Release](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/3) (7 issues) — each broken into issues that were opened and assigned to their milestone before the corresponding branch was created.
 
 ### B. Project Board
 
-[PASTE YOUR PROJECT BOARD SCREENSHOT DIRECTLY HERE]
+<img width="1621" height="1070" alt="image" src="https://github.com/user-attachments/assets/2692388f-276d-4802-a10e-bce16df95081" />
+
 
 * **Board URL:** https://github.com/orgs/IS-PROJECT-2026/projects/130
 
@@ -65,13 +67,15 @@ A second, more serious slip is worth recording. My first branch protection rule 
 
 ### C. Branching Architecture
 
-[PASTE YOUR BRANCHING SCREENSHOT DIRECTLY HERE]
+<img width="1855" height="756" alt="image" src="https://github.com/user-attachments/assets/c48abfbb-371e-4013-912f-9f8b85882c51" />
+
 
 * **Caption:** Every branch is named for the issue it closes and prefixed by the kind of change it carries — `feat/3-product-grid`, `feat/7-checkout-flow`, `style/10-responsive-layout`, `refactor/25-trim-hero-stats`, `docs/11-readme-and-pages`. Nothing was committed to `main` directly; it only ever advances through merge commits.
 
 ### D. Pull Requests & Traceability
 
-[PASTE YOUR PULL REQUEST SCREENSHOT DIRECTLY HERE]
+<img width="1427" height="1031" alt="image" src="https://github.com/user-attachments/assets/b876af70-d20a-4ed5-b8d4-1ad001696355" />
+
 
 * **Caption:** [PR #18](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/pull/18) closing issue #7, showing the linked issue in the sidebar and the self-review notes in the description.
 
