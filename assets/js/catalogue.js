@@ -1,6 +1,6 @@
 /**
- * Storefront home: renders the product grid, drives search and category
- * filtering, and opens the product detail dialog.
+ * Storefront home: renders the product grid and drives search, category
+ * filtering, sorting and the product detail dialog.
  */
 (() => {
   const grid = document.querySelector("#product-grid");
@@ -9,6 +9,7 @@
   const searchInput = document.querySelector("#search");
   const categorySelect = document.querySelector("#category");
   const resultCount = document.querySelector("#result-count");
+  const sortSelect = document.querySelector("#sort");
   const emptyState = document.querySelector("#empty-state");
   const dialog = document.querySelector("#product-dialog");
 
@@ -20,12 +21,20 @@
     categorySelect.appendChild(option);
   });
 
-  /** Apply the current search term and category to the catalogue. */
+  const SORTS = {
+    featured: null,
+    "price-asc": (a, b) => a.price - b.price,
+    "price-desc": (a, b) => b.price - a.price,
+    rating: (a, b) => b.rating - a.rating,
+    name: (a, b) => a.name.localeCompare(b.name),
+  };
+
+  /** Apply the current search term, category and sort to the catalogue. */
   function visibleProducts() {
     const term = searchInput.value.trim().toLowerCase();
     const category = categorySelect.value;
 
-    return PRODUCTS.filter((product) => {
+    let list = PRODUCTS.filter((product) => {
       const matchesCategory = category === "all" || product.category === category;
       const matchesTerm =
         !term ||
@@ -34,6 +43,12 @@
         product.category.toLowerCase().includes(term);
       return matchesCategory && matchesTerm;
     });
+
+    const comparator = SORTS[sortSelect.value];
+    // Sort a copy: sorting in place would permanently reorder the catalogue
+    // and make "featured" order impossible to get back.
+    if (comparator) list = list.slice().sort(comparator);
+    return list;
   }
 
   function cardMarkup(product) {
@@ -126,13 +141,14 @@
     }
   });
 
-  [searchInput, categorySelect].forEach((control) =>
+  [searchInput, categorySelect, sortSelect].forEach((control) =>
     control.addEventListener("input", render),
   );
 
   document.querySelector("#clear-filters").addEventListener("click", () => {
     searchInput.value = "";
     categorySelect.value = "all";
+    sortSelect.value = "featured";
     render();
   });
 
