@@ -825,3 +825,51 @@ dialog::backdrop {
   font-size: 0.85rem;
 }
 
+/* ------------------------------------------------------------ Responsive -- */
+
+@media (max-width: 900px) {
+  .cart-layout,
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .nav {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .line {
+    grid-template-columns: 72px minmax(0, 1fr);
+    row-gap: var(--space-3);
+  }
+
+  .line .qty,
+  .line .line-total,
+  .line .link-danger {
+    grid-column: 2;
+    justify-self: start;
+    text-align: left;
+  }
+
+  .form-grid,
+  .dialog-body {
+    grid-template-columns: 1fr;
+  }
+
+  .dialog-body .art {
+    max-width: 150px;
+  }
+}
+
