@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checkout — Sokoni</title>
+    <meta name="description" content="Confirm your delivery details and place your Sokoni order." />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">S</span>
+          Sokoni
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html">Shop</a>
+          <a class="cart-link" href="cart.html">
+            Cart
+            <span class="badge" data-cart-count hidden>0</span>
+          </a>
+          <a href="checkout.html">Checkout</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="section shell">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Step 2 of 2</p>
+          <h1>Checkout</h1>
+        </div>
+        <a class="btn btn-ghost" href="cart.html">Back to cart</a>
+      </div>
+
+      <div class="empty" id="checkout-empty" hidden>
+        <h3>There is nothing to check out</h3>
+        <p>Your cart is empty, so there is no order to place yet.</p>
+        <p><a class="btn btn-primary" href="index.html">Browse the catalogue</a></p>
+      </div>
+
+      <div class="checkout-layout" id="checkout-layout" hidden>
+        <form id="checkout-form" novalidate>
+          <h2>Delivery details</h2>
+          <p class="result-count">
+            This is a demonstration storefront — no payment is taken and no data leaves your browser.
+          </p>
+
+          <div class="form-grid">
+            <div class="field span-2">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+              <p class="error" data-error-for="name"></p>
+            </div>
+
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+              <p class="error" data-error-for="email"></p>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="0712345678" required />
+              <p class="error" data-error-for="phone"></p>
+            </div>
+
+            <div class="field span-2">
+              <label for="address">Delivery address</label>
+              <textarea id="address" name="address" rows="3" autocomplete="street-address" required></textarea>
+              <p class="error" data-error-for="address"></p>
+            </div>
+
+            <div class="field span-2">
+              <label for="city">Town or city</label>
+              <input id="city" name="city" type="text" autocomplete="address-level2" required />
+              <p class="error" data-error-for="city"></p>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit">Place order</button>
+        </form>
+
+        <aside class="panel" id="order-review" aria-label="Order review">
+          <h2>Order review</h2>
+          <ul class="review-list" data-slot="lines"></ul>
+          <ul class="totals">
+            <li><span>Subtotal</span><span data-slot="subtotal">—</span></li>
+            <li><span>Delivery</span><span data-slot="delivery">—</span></li>
+            <li class="grand"><span>Total</span><span data-slot="total">—</span></li>
+          </ul>
+        </aside>
+      </div>
+
+      <section class="confirmation" id="confirmation" hidden tabindex="-1">
+        <div class="tick" aria-hidden="true">✓</div>
+        <h2>Order placed</h2>
+        <p>
+          Thanks — a confirmation has been sent to
+          <strong data-slot="email"></strong>. You paid <strong data-slot="paid"></strong>.
+        </p>
+        <p class="reference" data-slot="reference"></p>
+        <p><a class="btn btn-primary" href="index.html">Back to the shop</a></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <span>© <span data-year></span> Sokoni Storefront</span>
+        <span>Built as a static site and deployed with GitHub Pages.</span>
+      </div>
+    </footer>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/store.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/js/checkout.js"></script>
+  </body>
+</html>
