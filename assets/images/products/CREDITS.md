@@ -1,19 +1,19 @@
 # Image credits
 
-Product photos come from Wikimedia Commons. Each one was cropped to a square and
-resized for this site. Licences are listed per file.
+Product photos come from Wikimedia Commons. I cropped each one square and
+resized it for the site. Licences are per file, listed below.
 
 | File | Source | Author | Licence |
 |---|---|---|---|
-| `tomatoes.jpg` | [-365 first tomatoes (28515790072).jpg](https://commons.wikimedia.org/wiki/File:-365_first_tomatoes_(28515790072).jpg) | terri_bateman | CC0 |
-| `sukuma-wiki.jpg` | [A collard leaf.jpg](https://commons.wikimedia.org/wiki/File:A_collard_leaf.jpg) | <a href="//commons.wikimedia.org/w/index.php?title=User:Kaweesaesther&action=edit&redlink= | CC BY-SA 4.0 |
-| `avocado.jpg` | [Avocado Hass - single and halved.jpg](https://commons.wikimedia.org/wiki/File:Avocado_Hass_-_single_and_halved.jpg) | Ivar Leidus | CC BY-SA 4.0 |
-| `mango.jpg` | [Mangos - single and halved.jpg](https://commons.wikimedia.org/wiki/File:Mangos_-_single_and_halved.jpg) | Ivar Leidus | CC BY-SA 4.0 |
-| `pishori-rice.jpg` | [Mushqbudji rice grains close-up.jpg](https://commons.wikimedia.org/wiki/File:Mushqbudji_rice_grains_close-up.jpg) | Zahoor Ahmad Reshi | CC0 |
-| `rosecoco-beans.jpg` | [Red Speckled Kidney Beans.jpg](https://commons.wikimedia.org/wiki/File:Red_Speckled_Kidney_Beans.jpg) | Sanjay Acharya | CC BY-SA 4.0 |
-| `tea-leaves.jpg` | [Zhu-Ye-Qing-Tea-03.jpg](https://commons.wikimedia.org/wiki/File:Zhu-Ye-Qing-Tea-03.jpg) | CEphoto, Uwe Aranas | CC BY-SA 4.0 |
-| `coffee-beans.jpg` | [Roasted coffee beans in white bowl.png](https://commons.wikimedia.org/wiki/File:Roasted_coffee_beans_in_white_bowl.png) | Alorin | CC BY 4.0 |
-| `honey.jpg` | [Three French monofloral honey jars.jpg](https://commons.wikimedia.org/wiki/File:Three_French_monofloral_honey_jars.jpg) | Hayden Soloviev | CC BY 4.0 |
-| `sufuria-set.jpg` | [All-Clad Copper Core pots.jpeg](https://commons.wikimedia.org/wiki/File:All-Clad_Copper_Core_pots.jpeg) | Didriks from Cambridge, MA | CC BY 2.0 |
-| `kiondo-basket.jpg` | [Kiondo traditional basket 01.jpg](https://commons.wikimedia.org/wiki/File:Kiondo_traditional_basket_01.jpg) | Unknown | CC BY-SA 4.0 |
-| `soapstone-bowl.jpg` | [Soapstone artistic carvings.jpg](https://commons.wikimedia.org/wiki/File:Soapstone_artistic_carvings.jpg) | Unknown | CC BY-SA 4.0 |
+| `headphones.jpg` | [Bose QuietComfort 25 Acoustic Noise Cancelling Headphones with Carry Case.jpg](https://commons.wikimedia.org/wiki/File:Bose_QuietComfort_25_Acoustic_Noise_Cancelling_Headphones_with_Carry_Case.jpg) | Florian Fuchs | CC BY-SA 3.0 |
+| `earbuds.jpg` | [ActiveSound wireless earbuds by Hykker (POJM200483).jpg](https://commons.wikimedia.org/wiki/File:ActiveSound_wireless_earbuds_by_Hykker_(POJM200483).jpg) | Warszawska róg Szerokiej w Tomaszowie Mazow | Public domain |
+| `laptop.jpg` | [Laptop der Marke exone go 20240203 HOF06886 RAW-Export 000276.png](https://commons.wikimedia.org/wiki/File:Laptop_der_Marke_exone_go_20240203_HOF06886_RAW-Export_000276.png) | PantheraLeo1359531 | CC BY 4.0 |
+| `keyboard.jpg` | [Mechanical keyboard example.jpg](https://commons.wikimedia.org/wiki/File:Mechanical_keyboard_example.jpg) | <a href="//commons.wikimedia.org/w/index.php?title=User:Thanasis_Termitzoglou&action=edit& | CC BY-SA 4.0 |
+| `mouse.jpg` | [2023 Mysz komputerowa Logitech G903 Lightspeed.jpg](https://commons.wikimedia.org/wiki/File:2023_Mysz_komputerowa_Logitech_G903_Lightspeed.jpg) | Jacek Halicki | CC BY-SA 4.0 |
+| `fitness-watch.jpg` | [Huawei Smartwatch Fit 2.jpg](https://commons.wikimedia.org/wiki/File:Huawei_Smartwatch_Fit_2.jpg) | D Eaketts | CC BY-SA 4.0 |
+| `smart-ring.jpg` | [Neyya smart ring.jpg](https://commons.wikimedia.org/wiki/File:Neyya_smart_ring.jpg) | designmilk from USA | CC BY-SA 2.0 |
+| `desk-lamp.jpg` | [A 3M Desk Lamp.jpg](https://commons.wikimedia.org/wiki/File:A_3M_Desk_Lamp.jpg) | <a href="//commons.wikimedia.org/w/index.php?title=User:Tbatb&action=edit&redlink=1" class | CC BY-SA 4.0 |
+| `ceramic-mug.jpg` | [Mug and Torus morph.gif](https://commons.wikimedia.org/wiki/File:Mug_and_Torus_morph.gif) | Lucas Vieira | Public domain |
+| `power-bank.jpg` | [SAMSUNG BATTERY PACK (POWER BANK) EB-P4520.jpg](https://commons.wikimedia.org/wiki/File:SAMSUNG_BATTERY_PACK_(POWER_BANK)_EB-P4520.jpg) | Dinkun Chen | CC BY-SA 4.0 |
+| `charger.jpg` | [Silicon vs GaN 30W USB-C chargers.jpg](https://commons.wikimedia.org/wiki/File:Silicon_vs_GaN_30W_USB-C_chargers.jpg) | 4300streetcar | CC BY 4.0 |
+| `speaker.jpg` | [JBL Flip 3 bluetooth speaker (DSCF2653).jpg](https://commons.wikimedia.org/wiki/File:JBL_Flip_3_bluetooth_speaker_(DSCF2653).jpg) | Trougnouf | CC BY 4.0 |
