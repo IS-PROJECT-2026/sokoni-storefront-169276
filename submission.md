@@ -63,7 +63,7 @@ The worse mistake was branch protection. I set the rule up but left *"Include ad
 
 * **Board URL:** https://github.com/orgs/IS-PROJECT-2026/projects/130
 
-* **Caption:** [Kanban board](https://github.com/orgs/IS-PROJECT-2026/projects/130) linked to this repository, with all 17 issues tracked across **To Do**, **In Progress** and **Done**. Every issue entered the board in To Do and was moved through In Progress before landing in Done, so the board carries the transitions rather than only the end state. Two items are deliberately still open: capturing these screenshots (In Progress) and forking the repository to a personal profile after grading (To Do).
+* **Caption:** [Kanban board](https://github.com/orgs/IS-PROJECT-2026/projects/130) linked to this repository. All 21 issues are on it, across **To Do**, **In Progress** and **Done**. Each one started in To Do and went through In Progress before reaching Done, so the board shows the transitions and not just the finished state. One item is still open on purpose: forking the repository to a personal profile, which the brief says to do after grading.
 
 ### C. Branching Architecture
 
