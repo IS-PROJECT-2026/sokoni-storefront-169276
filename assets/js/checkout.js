@@ -1,8 +1,8 @@
 /**
  * Checkout: order review, delivery form validation and the confirmation screen.
  *
- * There is no payment backend — this is a static site — so "placing" an order
- * clears the cart and issues a local reference number.
+ * Nothing is charged. The site is static, so placing an order just clears the
+ * cart and makes up a reference number.
  */
 (() => {
   const form = document.querySelector("#checkout-form");
