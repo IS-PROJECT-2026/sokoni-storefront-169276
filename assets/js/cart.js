@@ -8,6 +8,7 @@
   if (!list) return;
 
   const empty = document.querySelector("#cart-empty");
+  const clearButton = document.querySelector("#clear-cart");
   const summary = document.querySelector("#cart-summary");
 
   function lineMarkup(line) {
@@ -38,6 +39,8 @@
     const hasItems = lines.length > 0;
     empty.hidden = hasItems;
     summary.hidden = !hasItems;
+    // No point offering to clear a cart that is already empty.
+    clearButton.hidden = !hasItems;
     if (!hasItems) return;
 
     const subtotal = Store.subtotal();
@@ -80,7 +83,7 @@
     Store.setQty(id, Number.isFinite(next) ? next : 1);
   });
 
-  document.querySelector("#clear-cart").addEventListener("click", () => {
+  clearButton.addEventListener("click", () => {
     Store.clear();
     toast("Cart cleared");
   });

@@ -1,9 +1,9 @@
 /**
  * Delivery pricing rules.
  *
- * The cart and the checkout both quote delivery, and they must never disagree —
- * a total that changes between the two screens reads as a bug to the shopper.
- * Keeping the rule in one place makes that impossible.
+ * The cart and the checkout both show delivery and they have to agree. If the
+ * total changed between the two screens it would just look broken, so the rule
+ * lives here only.
  */
 
 /** Orders at or above this subtotal ship free. */

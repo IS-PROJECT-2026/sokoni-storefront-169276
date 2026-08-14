@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Checkout — Sokoni</title>
+    <title>Checkout | Sokoni</title>
     <meta name="description" content="Confirm your delivery details and place your Sokoni order." />
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
@@ -37,8 +37,8 @@
       </div>
 
       <div class="empty" id="checkout-empty" hidden>
-        <h3>There is nothing to check out</h3>
-        <p>Your cart is empty, so there is no order to place yet.</p>
+        <h3>Nothing to check out</h3>
+        <p>The cart is empty, so there is no order to place.</p>
         <p><a class="btn btn-primary" href="index.html">Browse the catalogue</a></p>
       </div>
 
@@ -46,7 +46,7 @@
         <form id="checkout-form" novalidate>
           <h2>Delivery details</h2>
           <p class="result-count">
-            This is a demonstration storefront — no payment is taken and no data leaves your browser.
+            Nothing is charged here. This is a class project, and the details stay in your browser.
           </p>
 
           <div class="form-grid">
@@ -88,9 +88,9 @@
           <h2>Order review</h2>
           <ul class="review-list" data-slot="lines"></ul>
           <ul class="totals">
-            <li><span>Subtotal</span><span data-slot="subtotal">—</span></li>
-            <li><span>Delivery</span><span data-slot="delivery">—</span></li>
-            <li class="grand"><span>Total</span><span data-slot="total">—</span></li>
+            <li><span>Subtotal</span><span data-slot="subtotal">-</span></li>
+            <li><span>Delivery</span><span data-slot="delivery">-</span></li>
+            <li class="grand"><span>Total</span><span data-slot="total">-</span></li>
           </ul>
         </aside>
       </div>
@@ -99,8 +99,8 @@
         <div class="tick" aria-hidden="true">✓</div>
         <h2>Order placed</h2>
         <p>
-          Thanks — a confirmation has been sent to
-          <strong data-slot="email"></strong>. You paid <strong data-slot="paid"></strong>.
+          Thanks. A confirmation went to <strong data-slot="email"></strong>,
+          and the total was <strong data-slot="paid"></strong>.
         </p>
         <p class="reference" data-slot="reference"></p>
         <p><a class="btn btn-primary" href="index.html">Back to the shop</a></p>
