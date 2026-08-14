@@ -93,7 +93,7 @@
   }
 
   function openDetails(product) {
-    dialog.querySelector("[data-slot=art]").innerHTML = productArt(product);
+    dialog.querySelector("[data-slot=art]").innerHTML = productArt(product, "lg");
     dialog.querySelector("[data-slot=category]").textContent = product.category;
     dialog.querySelector("[data-slot=name]").textContent = product.name;
     dialog.querySelector("[data-slot=blurb]").textContent = product.blurb;
@@ -122,7 +122,7 @@
 
     if (button.dataset.action === "add") {
       const fullyAdded = Store.add(product.id);
-      toast(fullyAdded ? `${product.name} added to cart` : `Only ${product.stock} available — cart capped`);
+      toast(fullyAdded ? `${product.name} added to cart` : `Only ${product.stock} left, so the cart was capped`);
     } else {
       openDetails(product);
     }
