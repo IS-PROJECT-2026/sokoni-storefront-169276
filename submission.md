@@ -54,7 +54,7 @@ A second, more serious slip is worth recording. My first branch protection rule 
 <img width="2079" height="803" alt="image" src="https://github.com/user-attachments/assets/d6fa391f-80a3-46db-b8c5-c391329e6f1a" />
 
 
-* **Caption:** Three milestones — [M1 Catalogue Foundation](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/1) (4 issues), [M2 Cart & Checkout](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/2) (3 issues) and [M3 Discovery, Polish & Release](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/3) (7 issues) — each broken into issues that were opened and assigned to their milestone before the corresponding branch was created.
+* **Caption:** Three milestones — [M1 Catalogue Foundation](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/1) (4 issues), [M2 Cart & Checkout](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/2) (3 issues) and [M3 Discovery, Polish & Release](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/3) (10 issues) — each broken into issues that were opened and assigned to their milestone before the corresponding branch was created.
 
 ### B. Project Board
 
@@ -151,11 +151,11 @@ Resolved in commit [`3e8518e`](https://github.com/IS-PROJECT-2026/sokoni-storefr
 
 | Requirement | Evidence |
 |---|---|
-| Milestones | 3, all issues closed |
-| Issues | 15, each assigned to a milestone before its branch existed |
-| Feature branches | 18, all named `type/issue-number-description` |
-| Pull requests | 18, every one merged, every one referencing the issue it closes |
-| Direct commits to `main` | 0 — `main` rejects direct pushes with `GH006` |
+| Milestones | 3 — every development issue closed |
+| Issues | 17, each assigned to a milestone before its branch existed |
+| Feature branches | 20, all named `type/issue-number-description` |
+| Pull requests | 20, every one merged, every one referencing the issue it closes |
+| Direct commits to `main` | 0 — `main` rejects direct pushes with `GH006`. The only non-pull-request commit is the repository's root commit, created by GitHub when the repository itself was created |
 | Conventional commit types | 5 — `feat`, `fix`, `docs`, `style`, `refactor` |
 | Merge conflicts | 3, from 3 distinct causes, all resolved and merged |
 | Deployment | Live on GitHub Pages from the repository root |
