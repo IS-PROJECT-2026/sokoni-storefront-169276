@@ -1,7 +1,6 @@
 # Sokoni Storefront
 
-A small online shop you can browse, add things to a cart, and check out from.
-Sokoni is Swahili for "at the market". It sells audio, computing, wearables,
+A small online shop you can browse, add things to a cart, and check out from.It sells audio, computing, wearables,
 power and home gear.
 
 **Live site:** https://is-project-2026.github.io/sokoni-storefront-169276/
