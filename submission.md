@@ -63,7 +63,7 @@ The worse mistake was branch protection. I set the rule up but left *"Include ad
 
 * **Board URL:** https://github.com/orgs/IS-PROJECT-2026/projects/130
 
-* **Caption:** [Kanban board](https://github.com/orgs/IS-PROJECT-2026/projects/130) linked to this repository. All 22 issues are on it, across **To Do**, **In Progress** and **Done**. Each one started in To Do and went through In Progress before reaching Done, so the board shows the transitions and not just the finished state. One item is still open on purpose: forking the repository to a personal profile, which the brief says to do after grading.
+* **Caption:** [Kanban board](https://github.com/orgs/IS-PROJECT-2026/projects/130) linked to this repository. All 22 issues are on it, across **To Do**, **In Progress** and **Done**. Each one started in To Do and went through In Progress before reaching Done, so the board shows the transitions and not just the finished state. Nothing is left open.
 
 ### C. Branching Architecture
 
@@ -151,13 +151,14 @@ Resolved in commit [`3e8518e`](https://github.com/IS-PROJECT-2026/sokoni-storefr
 | Requirement | Evidence |
 |---|---|
 | Milestones | 4: catalogue, cart and checkout, release, then the visual rework |
-| Issues | 22, each put on a milestone before its branch existed |
-| Feature branches | 26, all named `type/issue-number-description` |
-| Pull requests | 26, all merged, each referencing the issue it closes |
+| Issues | 22, each put on a milestone before its branch existed, all closed |
+| Feature branches | 27, all named `type/issue-number-description` |
+| Pull requests | 27, all merged, each referencing the issue it closes |
 | Direct commits to `main` | 0. `main` rejects direct pushes with `GH006`. The one commit that did not come through a pull request is the root commit, which GitHub created with the repository |
 | Conventional commit types | 5: `feat`, `fix`, `docs`, `style`, `refactor` |
 | Merge conflicts | 3, from 3 distinct causes, all resolved and merged |
 | Deployment | Live on GitHub Pages from the repository root |
+| Portfolio fork | [SharonKariuki/sokoni-storefront-169276](https://github.com/SharonKariuki/sokoni-storefront-169276), a real fork so the link back to the original is kept |
 
 ---
 
