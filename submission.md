@@ -17,31 +17,31 @@
 
 ---
 
-## 3. Reflection — Grounded in Your Git History
+## 3. Reflection: Grounded in Your Git History
 
 ### A. Your Best Commit
 
 - **Commit URL:** https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/commit/135ae2264883123b0777d34015311e1448cc8bbd
 
-- **Why this one?** The subject `refactor: extract delivery pricing into one module` is 44 characters, imperative, and uses the type that actually describes the change — nothing about the site's behaviour changed, so `feat` would have been wrong. The body explains *why* rather than restating the diff: two copies of the delivery rule meant the total could differ between the cart and the checkout, which a shopper reads as a bug even though each screen is internally consistent.
+- **Why this one?** The subject is 44 characters and in the imperative. I used `refactor` because nothing the site does actually changed, so `feat` would have been wrong. The body says why I did it rather than repeating the diff: I had the delivery rule written out twice, and if the two copies drifted the total would change between the cart and the checkout. Each screen would still look right on its own, which is what makes that kind of bug hard to spot.
 
 ### B. A Mistake or Struggle
 
 - **Link to the evidence:** https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/commit/fa0c85c443c214c08b0b3268b12f475378ed5380
 
-- **What happened and how did you recover?** In that commit I declared `FREE_DELIVERY_FROM` and `DELIVERY_FEE` inside `checkout.js`, having already declared the identical constants in `cart.js` on an earlier branch. Two copies of a pricing rule is a bug waiting to happen: change one and the cart quotes a different total to the checkout. I caught it while re-reading my own diff before merging [PR #18](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/pull/18), and fixed it in the same pull request with a second commit that extracted `pricing.js` and had both pages call `deliveryFor()`. I kept the two commits separate rather than amending, so the history shows the duplication being introduced and then removed instead of hiding it.
+- **What happened and how did you recover?** In that commit I put `FREE_DELIVERY_FROM` and `DELIVERY_FEE` into `checkout.js`, forgetting I had already written the same two constants in `cart.js` on an earlier branch. I noticed while reading my own diff before merging [PR #18](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/pull/18), and fixed it in the same pull request by moving both into `pricing.js` and having the two pages call `deliveryFor()`. I left it as two commits instead of amending, so the history shows the mistake going in and then coming out.
 
-A second, more serious slip is worth recording. My first branch protection rule left *"Include administrators"* off. Because I am the repository owner, my very first test push went straight through to `main` with the message `Bypassed rule violations for refs/heads/main` — the rule existed but did not apply to me. I removed the commit, re-applied the rule with `enforce_admins: true`, and re-tested; `main` now rejects direct pushes with `GH006`. The captured rejection is in [`evidence/branch-protection-rejection.txt`](evidence/branch-protection-rejection.txt).
+The worse mistake was branch protection. I set the rule up but left *"Include administrators"* off, and because I own the repository my first test push went straight to `main` anyway, printing `Bypassed rule violations for refs/heads/main`. The rule existed but did not apply to me, which is the least useful kind of protection. I removed that commit, turned on `enforce_admins`, and tested again. `main` now refuses direct pushes with `GH006`, and I saved the output in [`evidence/branch-protection-rejection.txt`](evidence/branch-protection-rejection.txt).
 
 ### C. A Pull Request You're Proud Of
 
 - **PR URL:** https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/pull/16
 
-- **What did you check before merging?** I reviewed the cart store against the inputs that break naive implementations rather than the happy path: corrupt JSON in `localStorage`, a stored value that is not an array, a saved product id no longer in the catalogue, and negative and fractional quantities. Each one degrades to a safe state instead of throwing. I also checked that `Store.add()` returns `false` when a request is capped by stock, so the interface can explain the cap to the shopper instead of silently changing the number they asked for.
+- **What did you check before merging?** Instead of just adding something and watching it appear, I tried the inputs that would break it: broken JSON in `localStorage`, a saved value that is not an array, a product id that no longer exists, and negative and fractional quantities. All of them end up as an empty or corrected cart rather than an error. I also made `Store.add()` return `false` when stock caps the request, so the page can say so instead of quietly changing the number someone asked for.
 
 ### D. One Thing You Would Do Differently
 
-- **What would you change?** I would branch every feature from a freshly pulled `main` as a fixed first step. Twice I created the next branch while still standing on the previous one, so it forked from the feature branch rather than from the merge commit. The pull request diffs stayed correct because git compares against the merge base, but the commit graph is messier than it needed to be, and one `git checkout main` aborted mid-script because of uncommitted work.
+- **What would you change?** Pull `main` and branch from it before starting anything, every time. Twice I made the next branch while still sitting on the previous one, so it forked off the feature branch instead of the merge commit. The pull request diffs were still correct, since git compares against the merge base, but the history looks messier than it needed to. One of those times `git checkout main` also refused to run because I had uncommitted work.
 
 - **Link to the evidence of the original decision:** https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/pull/15
 
@@ -54,7 +54,7 @@ A second, more serious slip is worth recording. My first branch protection rule 
 <img width="2079" height="803" alt="image" src="https://github.com/user-attachments/assets/d6fa391f-80a3-46db-b8c5-c391329e6f1a" />
 
 
-* **Caption:** Three milestones — [M1 Catalogue Foundation](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/1) (4 issues), [M2 Cart & Checkout](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/2) (3 issues) and [M3 Discovery, Polish & Release](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/3) (10 issues) — each broken into issues that were opened and assigned to their milestone before the corresponding branch was created.
+* **Caption:** Four milestones: [M1 Catalogue Foundation](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/1) with 4 issues, [M2 Cart & Checkout](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/2) with 3, [M3 Discovery, Polish & Release](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/3) with 10, and [M4 Visual identity and real product photos](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/milestone/4) with 4. Every issue was opened and put on its milestone before I made the branch for it.
 
 ### B. Project Board
 
@@ -70,7 +70,7 @@ A second, more serious slip is worth recording. My first branch protection rule 
 <img width="1855" height="756" alt="image" src="https://github.com/user-attachments/assets/c48abfbb-371e-4013-912f-9f8b85882c51" />
 
 
-* **Caption:** Every branch is named for the issue it closes and prefixed by the kind of change it carries — `feat/3-product-grid`, `feat/7-checkout-flow`, `style/10-responsive-layout`, `refactor/25-trim-hero-stats`, `docs/11-readme-and-pages`. Nothing was committed to `main` directly; it only ever advances through merge commits.
+* **Caption:** Each branch is named after the issue it closes, with a prefix for the kind of change: `feat/3-product-grid`, `feat/7-checkout-flow`, `style/10-responsive-layout`, `refactor/25-trim-hero-stats`, `docs/11-readme-and-pages`. Nothing went onto `main` directly, so it only ever moves forward through merge commits.
 
 ### D. Pull Requests & Traceability
 
@@ -83,16 +83,15 @@ A second, more serious slip is worth recording. My first branch protection rule 
 
 ## 5. Merge Conflict Evidence
 
-Three conflicts were engineered from three genuinely different causes. The
-distinction matters: only the first is the "two people edited the same line"
-case most people picture. The other two arise from mechanisms that have nothing
-to do with overlapping line edits.
+I made three conflicts, each from a different cause. Only the first is the
+"two people edited the same line" case everyone pictures. The other two happen
+for reasons that have nothing to do with overlapping lines.
 
 ---
 
-### Conflict 1 — Full Chronology
+### Conflict 1: Full Chronology
 
-**What cause did you use?** Concurrent edits to the same line — two branches rewrote the same `<h1>` in `index.html`.
+**What cause did you use?** Two branches editing the same line. Both rewrote the same `<h1>` in `index.html`.
 
 #### Step 1: Generating the Clash
 
@@ -109,7 +108,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 ![Conflict 1 markers](evidence/conflict_evidence_1.png)
 
-* **Caption:** Both branches replaced the same physical line. Git can merge two edits to the *same file* without help, but not two different replacements of the *same line* — there is no way to order them, so it writes both sides in and hands the decision back. `HEAD` holds this branch's wording, `origin/main` holds the wording already merged. I kept the honest-price claim from my side and the concrete "tech you actually need" framing from main, because neither rewrite was clearly better than the other.
+* **Caption:** Git can merge two edits to the same file by itself, but not two different replacements of the same line, because there is no way to decide which order they go in. So it writes both versions into the file and leaves the choice to me. `HEAD` is my branch's wording, `origin/main` is the one already merged. Neither was better, so I kept the price claim from mine and the "tech you actually need" phrasing from main.
 
 #### Step 3: Resolution & Clean Merge
 
@@ -119,31 +118,31 @@ Resolved in commit [`3e8518e`](https://github.com/IS-PROJECT-2026/sokoni-storefr
 <h1>Honest prices on tech you actually need.</h1>
 ```
 
-* **Caption:** The merge commit records both parents, so the history still shows the branches diverging and being reconciled rather than one side quietly overwriting the other.
+* **Caption:** The merge commit keeps both parents, so the history still shows the branches splitting and coming back together instead of one side overwriting the other.
 
 ---
 
-### Conflict 2 — Different Cause
+### Conflict 2: Different Cause
 
-**What cause did you use?** Add/add — both branches independently created the same new file, `CHANGELOG.md`.
+**What cause did you use?** Add/add. Both branches created the same new file, `CHANGELOG.md`, without knowing about each other.
 
-**Why does this cause trigger a conflict?** Git merges by comparing each side against their common ancestor. `CHANGELOG.md` did not exist at the merge base, so there is no ancestor version to compare against and no way to describe either side as "the change". Both sides added the path from nothing, git cannot tell which one is authoritative, and so the entire file is treated as contested rather than any particular line. Git labels this case distinctly — `CONFLICT (add/add)` — precisely because the mechanism is not a line-level disagreement.
+**Why does this cause trigger a conflict?** Git works out a merge by comparing both sides against their common ancestor. Here there is no ancestor, because the file did not exist at the merge base. Both sides created it from nothing, so git cannot say which one is the change and which is the original, and the whole file ends up contested instead of a single line. Git gives this its own label, `CONFLICT (add/add)`, because it is not a line-level disagreement at all.
 
 ![Conflict 2 markers](evidence/conflict_evidence_2.png)
 
-* **Caption:** `docs/24-changelog-milestones` against `main`, which already carried `CHANGELOG.md` from [PR #27](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/pull/27). Note that the conflict region spans the whole document, not a single line. Resolved by folding the milestone grouping into the Keep a Changelog structure so neither document was discarded — [PR #30](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/pull/30).
+* **Caption:** `docs/24-changelog-milestones` against `main`, which already had `CHANGELOG.md` from [PR #27](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/pull/27). The marked region covers the whole document, not one line. I combined the two by putting my milestone grouping inside the Keep a Changelog structure from main, so nothing was lost ([PR #30](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/pull/30)).
 
 ---
 
-### Conflict 3 — Different Cause
+### Conflict 3: Different Cause
 
-**What cause did you use?** Delete versus modify — one branch deleted a block of lines that the other branch edited.
+**What cause did you use?** Delete against modify. One branch deleted a block of lines that the other branch had edited.
 
-**Why does this cause trigger a conflict?** The two sides disagree about whether the content should exist at all, which is a category of disagreement git cannot arbitrate. `main` removed the `.hero-stats` block entirely; this branch rewrote the labels inside it. An edit cannot be applied to lines that no longer exist on the other side, so git surfaces the whole block against an empty opposing side and asks whether the content should survive. Unlike Conflict 1 there is no competing replacement to choose between — the question is existence, not wording.
+**Why does this cause trigger a conflict?** The two sides disagree about whether the content should be there at all, and git cannot settle that on its own. `main` deleted the `.hero-stats` block, while my branch rewrote the labels inside it. An edit cannot be applied to lines that are gone on the other side, so git shows the whole block against an empty side and asks whether to keep it. Unlike the first conflict there is no rival version to pick. The question is whether it exists, not how it is worded.
 
 ![Conflict 3 markers](evidence/conflict_evidence_3.png)
 
-* **Caption:** `style/25-hero-stats-copy` against `main`, which had already dropped the block via [PR #26](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/pull/26). `HEAD` shows the relabelled statistics, `origin/main` shows nothing at all. I accepted the deletion: the figures were hard-coded and went stale whenever stock changed, so better labels on stale numbers is not an improvement worth keeping — [PR #31](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/pull/31).
+* **Caption:** `style/25-hero-stats-copy` against `main`, which had already dropped the block in [PR #26](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/pull/26). `HEAD` has my relabelled figures, `origin/main` has nothing. I took the deletion. Those numbers were hard-coded and went out of date whenever stock changed, and better labels on wrong numbers are still wrong numbers ([PR #31](https://github.com/IS-PROJECT-2026/sokoni-storefront-169276/pull/31)).
 
 ---
 
@@ -151,12 +150,12 @@ Resolved in commit [`3e8518e`](https://github.com/IS-PROJECT-2026/sokoni-storefr
 
 | Requirement | Evidence |
 |---|---|
-| Milestones | 3 — every development issue closed |
-| Issues | 17, each assigned to a milestone before its branch existed |
-| Feature branches | 20, all named `type/issue-number-description` |
-| Pull requests | 20, every one merged, every one referencing the issue it closes |
-| Direct commits to `main` | 0 — `main` rejects direct pushes with `GH006`. The only non-pull-request commit is the repository's root commit, created by GitHub when the repository itself was created |
-| Conventional commit types | 5 — `feat`, `fix`, `docs`, `style`, `refactor` |
+| Milestones | 4: catalogue, cart and checkout, release, then the visual rework |
+| Issues | 21, each put on a milestone before its branch existed |
+| Feature branches | 24, all named `type/issue-number-description` |
+| Pull requests | 24, all merged, each referencing the issue it closes |
+| Direct commits to `main` | 0. `main` rejects direct pushes with `GH006`. The one commit that did not come through a pull request is the root commit, which GitHub created with the repository |
+| Conventional commit types | 5: `feat`, `fix`, `docs`, `style`, `refactor` |
 | Merge conflicts | 3, from 3 distinct causes, all resolved and merged |
 | Deployment | Live on GitHub Pages from the repository root |
 
