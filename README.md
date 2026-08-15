@@ -101,22 +101,3 @@ python -m http.server 8000
 
 Then go to http://localhost:8000.
 
-## Deployment
-
-Pages serves the root of `main`, and `index.html` is at that root. Putting it
-in a subfolder is what usually causes a 404 here.
-
-## How I worked
-
-Four milestones: getting the catalogue on screen, cart and checkout, search and
-release, then the visual rework and real photos. Each one was split into issues,
-and every issue got its own branch named after it, like `feat/3-product-grid` or
-`style/40-market-look`.
-
-`main` is protected and rejects direct pushes, so everything went through a pull
-request. Commit types used so far are `feat`, `fix`, `docs`, `style` and
-`refactor`.
-
-## Author
-
-Sharon Mugure Kariuki, Admission No. 169276, ICS 4D, Strathmore University.
