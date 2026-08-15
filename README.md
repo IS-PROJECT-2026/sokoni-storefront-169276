@@ -6,8 +6,7 @@ power and home gear.
 
 **Live site:** https://is-project-2026.github.io/sokoni-storefront-169276/
 
-It is plain HTML, CSS and JavaScript. No framework, no build step, and nothing
-to install.
+
 
 ## What it does
 
